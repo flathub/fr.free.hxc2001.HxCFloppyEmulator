@@ -33,6 +33,9 @@ modules:
       - install -Dm755 -t /app/bin hxcfloppyemulator
       - install -Dm644 -t /app/lib libhxcfe.so 
       - install -Dm644 -t /app/lib libusbhxcfe.so
+      - install -Dm644 -t /app/lib mv x86_64-linux-gnu-capsimage/libcapsimage.so.4.2
+      - ln -s /app/lib/libcapsimage.so.4.2 libcapsimage.so.4
+      - ln -s /app/lib/libcapsimage.so.4 libcapsimage.so
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" ../../fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" ../../fr.free.hxc2001.HxCFloppyEmulator.desktop
       - install -Dm644 ../../icon.png "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
@@ -47,3 +50,11 @@ modules:
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.desktop
+      - type: archive
+        only-arches: [x86_64]
+        url: http://www.softpres.org/_media/files:ipflib42_linux-x86_64.tar.gz
+        sha256: ea139673e29a36dc3be7ba916628b5c8a03353bd68be4d346daed803d472ddf3
+      - type: archive
+        only-arches: [i386]
+        url: http://www.softpres.org/_media/files:ipflib42_linux-i686.tar.gz
+        sha256: 7445a6807a40c1545b4c6489e76522c2476cee11debb23d1b7e344caa18ba8d9
