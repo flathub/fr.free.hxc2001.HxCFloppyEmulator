@@ -19,17 +19,17 @@ modules:
         sha256: 5c534287b0e03b9520ff866704a5649268986b371bdf8f6ac003fa240e761901
       - type: patch
         path: fltk-fix-lib-mess.patch
+      - type: patch
+        path: fltk-1.3.5-vc6.patch
 
   - name: hxcfloppyemulator
     buildsystem: simple
-    build-options:
-      cflags: -Wno-error
-      cxxflags: -Wno-error
     build-commands:
       - sed -i /fltk-1.3/d Makefile
       - sed -i /^FLTKLIB/d ../HxCFloppyEmulator_software/trunk/build/Makefile
       - sed -i 's@-I ../sources/thirdpartylibs/fltk/fltk-1.3.x/@$(shell fltk-config --cxxflags)@g' ../HxCFloppyEmulator_software/trunk/build/Makefile
       - sed -i 's@LDFLAGS += -Wl,-rpath=.@LDFLAGS += -Wl,-rpath=. $(shell fltk-config --ldflags)@g' ../HxCFloppyEmulator_software/trunk/build/Makefile
+      - sed -i 's@cd ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/ && ./prepare_fltk.sh@@g' Makefile
       - make -j $FLATPAK_BUILDER_N_JOBS
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
@@ -47,7 +47,7 @@ modules:
     sources:
       - type: svn
         url: https://svn.code.sf.net/p/hxcfloppyemu/code/
-        revision: '1881' # v2.2.2.1
+        revision: '1924' # v2.2.2.1
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
