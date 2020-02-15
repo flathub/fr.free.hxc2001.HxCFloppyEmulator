@@ -8,7 +8,7 @@ add-extensions:
     versions: 1-19.08
     directory: extensions
     merge-dirs: lib
-    subdirectories: false
+    subdirectories: true
     autodelete: true
     no-autodownload: true
 finish-args:
