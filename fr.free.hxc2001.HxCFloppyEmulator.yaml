@@ -3,6 +3,14 @@ runtime: org.freedesktop.Platform
 runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: hxcfloppyemulator
+add-extensions:
+  fr.free.hxc2001.HxCFloppyEmulator.Extension:
+    versions: 1-19.08
+    directory: extensions
+    merge-dirs: lib
+    subdirectories: false
+    autodelete: true
+    no-autodownload: true
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -29,6 +37,7 @@ modules:
       - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_128x128.png "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
       - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_32x32.png "${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.png"
       - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_16x16.png "${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.png"
+      - install -d "${FLATPAK_DEST}/extensions"
     subdir: HxCFloppyEmulator/build
     sources:
       - type: svn
