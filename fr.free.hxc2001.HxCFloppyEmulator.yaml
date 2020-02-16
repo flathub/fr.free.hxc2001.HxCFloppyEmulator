@@ -7,7 +7,7 @@ add-extensions:
   fr.free.hxc2001.HxCFloppyEmulator.Extension:
     versions: 1-19.08
     directory: extensions
-    merge-dirs: lib
+    add-ld-path: lib;extra/lib
     subdirectories: true
     autodelete: true
     no-autodownload: true
