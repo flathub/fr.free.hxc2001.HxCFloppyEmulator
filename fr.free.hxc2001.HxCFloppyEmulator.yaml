@@ -7,7 +7,7 @@ add-extensions:
   fr.free.hxc2001.HxCFloppyEmulator.Extension:
     versions: 1-19.08
     directory: extensions
-    add-ld-path: lib
+    add-ld-path: extra/lib
     subdirectories: true
     autodelete: true
     no-autodownload: true
@@ -42,7 +42,7 @@ modules:
     sources:
       - type: svn
         url: https://svn.code.sf.net/p/hxcfloppyemu/code/
-        revision: '1964' # v2.4.1.1
+        revision: '1974' # v2.4.1.1
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
