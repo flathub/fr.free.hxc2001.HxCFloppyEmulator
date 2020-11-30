@@ -41,7 +41,7 @@ modules:
     subdir: HxCFloppyEmulator/build
     sources:
       - type: svn
-        url: svn://svn.code.sf.net/p/hxcfloppyemu/code/ hxcfloppyemu-code
+        url: svn://svn.code.sf.net/p/hxcfloppyemu/code/
         revision: '2291' # v2.5.2.1
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
