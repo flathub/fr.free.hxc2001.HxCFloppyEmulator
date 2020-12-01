@@ -22,8 +22,8 @@ modules:
   - name: hxcfloppyemulator
     buildsystem: simple
     build-commands:
-      - mkdir ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.3.x/
-      - tar -C ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.3.x -zxvf ../../fltk-1.3.5-source.tar.gz --strip 1
+      - mkdir ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x/
+      - tar -C ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../../fltk-1.3.5-source.tar.gz --strip 1
       - make
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
