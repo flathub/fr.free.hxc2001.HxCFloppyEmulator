@@ -42,7 +42,7 @@ modules:
     sources:
       - type: svn
         url: svn://svn.code.sf.net/p/hxcfloppyemu/code/
-        revision: '2307' # v2.5.2.1
+        revision: '2474' # v2.5.6.9
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
