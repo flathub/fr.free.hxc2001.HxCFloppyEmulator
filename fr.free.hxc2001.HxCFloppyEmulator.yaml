@@ -23,7 +23,7 @@ modules:
     buildsystem: simple
     build-commands:
       - mkdir ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x/
-      - tar -C ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../../fltk-1.3.5-source.tar.gz --strip 1
+      - tar -C ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../../fltk-1.3.8-source.tar.gz --strip 1
       - make
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
@@ -48,7 +48,7 @@ modules:
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.desktop
       - type: file
-        url: https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
-        sha256: 8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702
+        url: https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
+        sha256: f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf
       - type: patch
         path: absolute-path-for-libcapsimage.patch
