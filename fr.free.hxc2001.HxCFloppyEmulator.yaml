@@ -22,27 +22,29 @@ modules:
   - name: hxcfloppyemulator
     buildsystem: simple
     build-commands:
-      - mkdir ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x/
-      - tar -C ../HxCFloppyEmulator_software/trunk/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../../fltk-1.3.8-source.tar.gz --strip 1
+      - mkdir fltk-1.x.x
+      - mkdir ../HxCFloppyEmulator_software/sources/thirdpartylibs/fltk/fltk-1.x.x/
+      - tar -C ../HxCFloppyEmulator_software/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../fltk-1.3.8-source.tar.gz --strip 1
       - make
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
       - install -Dm755 -t /app/bin hxcfloppyemulator
       - install -Dm644 -t /app/lib libhxcfe.so 
       - install -Dm644 -t /app/lib libusbhxcfe.so
-      - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" ../../fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
-      - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" ../../fr.free.hxc2001.HxCFloppyEmulator.desktop
-      - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_256x256.png "${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_128x128.png "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_32x32.png "${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/trunk/sources/mac/icons/hxcfloppyemulator.iconset/icon_16x16.png "${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.png"
+      - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" ../fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
+      - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" ../fr.free.hxc2001.HxCFloppyEmulator.desktop
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_256x256.png "${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_128x128.png "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_32x32.png "${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_16x16.png "${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.png"
       - install -d "${FLATPAK_DEST}/extensions"
-    subdir: HxCFloppyEmulator/build
+    subdir: build
     sources:
-      - type: svn
-        url: svn://svn.code.sf.net/p/hxcfloppyemu/code/
-        revision: '2627' # Base: v2.5.12.1 / Frontend: v2.13.19.3
+      - type: git
+        url: https://github.com/jfdelnero/HxCFloppyEmulator.git
+        tag: HxCFloppyEmulator_V2_14_4_1
+        commit: 59ba2753390c32d03caa63c7ebc597959d5faf4b
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
@@ -52,3 +54,4 @@ modules:
         sha256: f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf
       - type: patch
         path: absolute-path-for-libcapsimage.patch
+        use-git: true
