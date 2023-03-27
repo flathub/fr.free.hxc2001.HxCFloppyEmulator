@@ -1,6 +1,6 @@
-diff -urN a/HxCFloppyEmulator/libhxcfe/trunk/sources/floppy_loader.c b/HxCFloppyEmulator/libhxcfe/trunk/sources/floppy_loader.c
---- a/HxCFloppyEmulator/libhxcfe/trunk/sources/floppy_loader.c	2022-06-07 20:02:57.055255975 +1000
-+++ b/HxCFloppyEmulator/libhxcfe/trunk/sources/floppy_loader.c	2022-06-07 20:06:10.120092735 +1000
+diff -urN a/libhxcfe/sources/floppy_loader.c b/libhxcfe/sources/floppy_loader.c
+--- a/libhxcfe/sources/floppy_loader.c	2022-06-07 20:02:57.055255975 +1000
++++ b/libhxcfe/sources/floppy_loader.c	2022-06-07 20:06:10.120092735 +1000
 @@ -128,7 +128,7 @@
  #elif __APPLE__
  		hxcfe_execScriptLine( hxcfe, "set SPSCAPS_LIB_NAME CAPSimage.framework/CAPSimage" );
