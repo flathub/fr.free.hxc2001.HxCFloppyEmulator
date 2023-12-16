@@ -43,8 +43,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        tag: HxCFloppyEmulator_V2_14_4_1
-        commit: 59ba2753390c32d03caa63c7ebc597959d5faf4b
+        commit: 0477739d5420a70c58945ae99dc29d5172b70b27
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
@@ -52,6 +51,6 @@ modules:
       - type: file
         url: https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
         sha256: f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf
-      - type: patch
-        path: absolute-path-for-libcapsimage.patch
-        use-git: true
+      # - type: patch
+      #   path: absolute-path-for-libcapsimage.patch
+      #   use-git: true
