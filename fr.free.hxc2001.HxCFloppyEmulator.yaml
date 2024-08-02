@@ -43,7 +43,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        commit: 0477739d5420a70c58945ae99dc29d5172b70b27
+        commit: a4420a8f7df8bc88aa0c84cf8540248bb60ae762
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
