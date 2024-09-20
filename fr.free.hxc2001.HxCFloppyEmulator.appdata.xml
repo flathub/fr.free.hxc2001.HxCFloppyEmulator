@@ -10,7 +10,7 @@
 	<url type="homepage">http://hxc2001.free.fr/floppy_drive_emulator/index.html</url>
 	<launchable type="desktop-id">fr.free.hxc2001.HxCFloppyEmulator.desktop</launchable>
 	<releases>
-		<release version="v2.16.3.2" date="2024-09-16"/>
+		<release version="2.16.3.2" date="2024-09-16"/>
 		<release version="2.15.8.4" date="2024-07-05"/>
 		<release version="2.15.5.1" date="2024-04-06"/>
 		<release version="2.15.2.3" date="2024-01-09"/>
