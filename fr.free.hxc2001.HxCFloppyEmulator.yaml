@@ -13,18 +13,41 @@ add-extensions:
     no-autodownload: true
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --filesystem=xdg-documents
   - --device=dri
   - --persist=.fltk
 modules:
+  - shared-modules/glu/glu-9.json
+
+  - name: fltk
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DOPTION_BUILD_SHARED_LIBS=ON
+      - -DFLTK_LIBDIR:PATH=lib
+      - -DOpenGL_GL_PREFERENCE=GLVND
+    build-options:
+      cflags: -fPIC
+      cxxflags: -fPIC
+    sources:
+      - type: archive
+        url: https://github.com/fltk/fltk/releases/download/release-1.4.1/fltk-1.4.1-source.tar.gz
+        sha256: 7d0a5a352fde0beae44a2009c1aca1d6be15d46dd251d1c12cf34d752b429038
+        x-checker-data:
+          type: anitya
+          project-id: 823
+          url-template: https://www.fltk.org/pub/fltk/$version/fltk-$version-source.tar.gz
+
   - name: hxcfloppyemulator
     buildsystem: simple
     build-commands:
-      - mkdir fltk-1.x.x
-      - mkdir ../HxCFloppyEmulator_software/sources/thirdpartylibs/fltk/fltk-1.x.x/
-      - tar -C ../HxCFloppyEmulator_software/sources/thirdpartylibs/fltk/fltk-1.x.x -zxvf ../fltk-1.3.8-source.tar.gz --strip 1
+      - sed -i /^FLTKLIB/d ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i '/$(MAKE) fltk/d' ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i 's@-I $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/@$(shell fltk-config --cxxflags)@g' ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i 's@LDFLAGS += $(shell $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/fltk-config --ldflags)@LDFLAGS += $(shell fltk-config --ldflags)@g' ../HxCFloppyEmulator_software/build/Makefile
       - make
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
@@ -43,14 +66,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        commit: 21f724e249475a3cf09e3f7ee8df7e20a2a09530
+        commit: c81600b68707e5c5a2d457c3e486a3d30121cb3e
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.desktop
-      - type: file
-        url: https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
-        sha256: f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf
       # - type: patch
       #   path: absolute-path-for-libcapsimage.patch
       #   use-git: true
