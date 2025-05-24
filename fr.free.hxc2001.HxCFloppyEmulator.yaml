@@ -34,8 +34,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/fltk/fltk/releases/download/release-1.4.2/fltk-1.4.2-source.tar.gz
-        sha256: abf51c65c73e08d470488b3fc834c943dc8cec16f7919165827f3403318a15ef
+        url: https://github.com/fltk/fltk/releases/download/release-1.4.3/fltk-1.4.3-source.tar.gz
+        sha256: 19725f687146610976a1a43ef448feeba212a7eca88ad5897d22f6adaf3af45b
         x-checker-data:
           type: anitya
           project-id: 823
@@ -66,7 +66,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        commit: d46ef4e00e764d6eb41ce42896a52fcca529b950
+        commit: 0a8f492d9b96e7c35283cf4ddf629c802f63fcf1
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
