@@ -1,11 +1,11 @@
 app-id: fr.free.hxc2001.HxCFloppyEmulator
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: hxcfloppyemulator
 add-extensions:
   fr.free.hxc2001.HxCFloppyEmulator.Extension:
-    versions: 1-24.08
+    versions: 1-25.08
     directory: extensions
     add-ld-path: extra/lib
     subdirectories: true
