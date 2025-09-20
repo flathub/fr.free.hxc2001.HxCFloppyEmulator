@@ -1,0 +1,36 @@
+From 8302f4e633d11f1074a27d91d97bcf4be5cca054 Mon Sep 17 00:00:00 2001
+From: Damian R <damian@motoi.pro>
+Date: Sat, 10 May 2025 17:54:16 +0900
+Subject: [PATCH] Added parameter to adfReleaseDevice declaration
+
+---
+ libhxcfe/sources/thirdpartylibs/adflib/Docs/API.txt    | 2 +-
+ libhxcfe/sources/thirdpartylibs/adflib/Lib/adf_nativ.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/libhxcfe/sources/thirdpartylibs/adflib/Docs/API.txt b/libhxcfe/sources/thirdpartylibs/adflib/Docs/API.txt
+index 5fd59ce29..9d9f06407 100644
+--- a/libhxcfe/sources/thirdpartylibs/adflib/Docs/API.txt
++++ b/libhxcfe/sources/thirdpartylibs/adflib/Docs/API.txt
+@@ -209,7 +209,7 @@ The structure 'struct nativeFunctions' must have at least :
+   BOOL (*adfNativeReadSector)(struct Device*, long, int, unsigned char*)
+   BOOL (*adfNativeWriteSector)(struct Device*, long, int, unsigned char*)
+   BOOL (*adfIsDevNative)(char*)
+-  void (*adfReleaseDevice)()
++  void (*adfReleaseDevice)(struct Device *)
+ 
+ 
+ For example, adfMountDev() calls adfInitDevice() this way :
+diff --git a/libhxcfe/sources/thirdpartylibs/adflib/Lib/adf_nativ.h b/libhxcfe/sources/thirdpartylibs/adflib/Lib/adf_nativ.h
+index 021f6da2d..bafdb88ae 100644
+--- a/libhxcfe/sources/thirdpartylibs/adflib/Lib/adf_nativ.h
++++ b/libhxcfe/sources/thirdpartylibs/adflib/Lib/adf_nativ.h
+@@ -54,7 +54,7 @@ struct nativeFunctions{
+     /* called by adfMount() */
+     BOOL (*adfIsDevNative)(char*);
+     /* called by adfUnMount() */
+-    RETCODE (*adfReleaseDevice)();
++    RETCODE (*adfReleaseDevice)(struct Device *);
+ };
+ 
+ void adfInitNativeFct();
