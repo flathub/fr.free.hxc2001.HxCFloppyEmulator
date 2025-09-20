@@ -39,7 +39,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 823
-          url-template: https://www.fltk.org/pub/fltk/$version/fltk-$version-source.tar.gz
+          url-template: https://github.com/fltk/fltk/releases/download/release-$version/fltk-$version-source.tar.gz
 
   - name: hxcfloppyemulator
     buildsystem: simple
