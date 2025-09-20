@@ -1,11 +1,11 @@
 app-id: fr.free.hxc2001.HxCFloppyEmulator
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: hxcfloppyemulator
 add-extensions:
   fr.free.hxc2001.HxCFloppyEmulator.Extension:
-    versions: 1-24.08
+    versions: 1-25.08
     directory: extensions
     add-ld-path: extra/lib
     subdirectories: true
@@ -39,7 +39,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 823
-          url-template: https://www.fltk.org/pub/fltk/$version/fltk-$version-source.tar.gz
+          url-template: https://github.com/fltk/fltk/releases/download/release-$version/fltk-$version-source.tar.gz
 
   - name: hxcfloppyemulator
     buildsystem: simple
@@ -71,6 +71,9 @@ modules:
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.desktop
+      - type: patch
+        path: 8302f4e633d11f1074a27d91d97bcf4be5cca054.patch
+        use-git: true
       # - type: patch
       #   path: absolute-path-for-libcapsimage.patch
       #   use-git: true
