@@ -34,8 +34,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/fltk/fltk/releases/download/release-1.4.3/fltk-1.4.3-source.tar.gz
-        sha256: 19725f687146610976a1a43ef448feeba212a7eca88ad5897d22f6adaf3af45b
+        url: https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.gz
+        sha256: 94b464cce634182c8407adac1be5fc49678986ca93285699b444352af89b4efe
         x-checker-data:
           type: anitya
           project-id: 823
@@ -46,21 +46,28 @@ modules:
     build-commands:
       - sed -i /^FLTKLIB/d ../HxCFloppyEmulator_software/build/Makefile
       - sed -i '/$(MAKE) fltk/d' ../HxCFloppyEmulator_software/build/Makefile
-      - sed -i 's@-I $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/@$(shell fltk-config --cxxflags)@g' ../HxCFloppyEmulator_software/build/Makefile
-      - sed -i 's@LDFLAGS += $(shell $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/fltk-config --ldflags)@LDFLAGS += $(shell fltk-config --ldflags)@g' ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i 's@-I $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/@$(shell fltk-config
+        --cxxflags)@g' ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i 's@LDFLAGS += $(shell $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/fltk-config
+        --ldflags)@LDFLAGS += $(shell fltk-config --ldflags)@g' ../HxCFloppyEmulator_software/build/Makefile
       - make
       - mkdir -p /app/lib /app/bin
       - install -Dm755 -t /app/bin hxcfe
       - install -Dm755 -t /app/bin hxcfloppyemulator
-      - install -Dm644 -t /app/lib libhxcfe.so 
+      - install -Dm644 -t /app/lib libhxcfe.so
       - install -Dm644 -t /app/lib libusbhxcfe.so
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" ../fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" ../fr.free.hxc2001.HxCFloppyEmulator.desktop
-      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_256x256.png "${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_128x128.png "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_32x32.png "${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.png"
-      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_16x16.png "${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_512x512.png
+        "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_256x256.png
+        "${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_128x128.png
+        "${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_32x32.png
+        "${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.png"
+      - install -Dm644 ../HxCFloppyEmulator_software/sources/mac/icons/hxcfloppyemulator.iconset/icon_16x16.png
+        "${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.png"
       - install -d "${FLATPAK_DEST}/extensions"
     subdir: build
     sources:
