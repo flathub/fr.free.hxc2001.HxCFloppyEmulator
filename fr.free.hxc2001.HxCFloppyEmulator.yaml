@@ -73,14 +73,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        commit: 0a8f492d9b96e7c35283cf4ddf629c802f63fcf1
+        commit: f815dae05e7da4bb4a30b817cc817890575570a3
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.desktop
-      - type: patch
-        path: 8302f4e633d11f1074a27d91d97bcf4be5cca054.patch
-        use-git: true
       # - type: patch
       #   path: absolute-path-for-libcapsimage.patch
       #   use-git: true
