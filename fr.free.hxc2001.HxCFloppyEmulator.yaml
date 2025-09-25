@@ -45,7 +45,7 @@ modules:
     buildsystem: simple
     build-commands:
       - sed -i /^FLTKLIB/d ../HxCFloppyEmulator_software/build/Makefile
-      - sed -i '/$(MAKE) fltk/d' ../HxCFloppyEmulator_software/build/Makefile
+      - sed -i '/$(MAKE) $(FLTKLIB)/d' ../HxCFloppyEmulator_software/build/Makefile
       - sed -i 's@-I $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/@$(shell fltk-config
         --cxxflags)@g' ../HxCFloppyEmulator_software/build/Makefile
       - sed -i 's@LDFLAGS += $(shell $(BASEDIR)/thirdpartylibs/fltk/fltk-1.x.x/fltk-config
