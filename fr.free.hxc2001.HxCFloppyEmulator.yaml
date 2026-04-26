@@ -34,8 +34,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.gz
-        sha256: 94b464cce634182c8407adac1be5fc49678986ca93285699b444352af89b4efe
+        url: https://github.com/fltk/fltk/releases/download/release-1.4.5/fltk-1.4.5-source.tar.gz
+        sha256: eede1fb2b8e9c2e581e77082e15252145855c79aad30070ee3b24aabe2f926f1
         x-checker-data:
           type: anitya
           project-id: 823
