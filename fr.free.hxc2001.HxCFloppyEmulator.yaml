@@ -1,11 +1,11 @@
 app-id: fr.free.hxc2001.HxCFloppyEmulator
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: hxcfloppyemulator
 add-extensions:
   fr.free.hxc2001.HxCFloppyEmulator.Extension:
-    versions: 1-25.08
+    versions: 1-26.08
     directory: extensions
     add-ld-path: extra/lib
     subdirectories: true
@@ -73,7 +73,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/jfdelnero/HxCFloppyEmulator.git
-        commit: d072d598290985edc610f867c8e6e2fa3131d4c5
+        commit: b1f0465a4cebd25a90fb2d56534bf5d730f9f117
       - type: file
         path: fr.free.hxc2001.HxCFloppyEmulator.appdata.xml
       - type: file
